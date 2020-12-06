@@ -29,7 +29,11 @@ def create_multi_figure(rows, dye=False):
         transforms.ToTensor()
       ])
       dyed = transform_hue(img)
-
+      # Move all to CPU
+      dyed = dyed.cpu()
+      img = img.cpu()
+      prediction = prediction.cpu()
+      
       dyed = prediction * dyed + (1 - prediction) * img
       data.append(dyed)
       names.append('Dye')
