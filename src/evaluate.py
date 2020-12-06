@@ -52,8 +52,7 @@ def evaluateOne(img, model, absolute=True):
         pred[pred < .4] = 0
 
     rows = [[img[0], pred[0]]]
-    create_multi_figure(rows, dye=True)
-    plt.show()
+    return rows
 
 
 def evaluate(test_data, model, num, absolute=True):
